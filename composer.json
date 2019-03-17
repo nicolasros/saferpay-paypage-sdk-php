@@ -1,0 +1,44 @@
+{
+  "name": "worldline/saferpay-paypage-sdk",
+  "description": "Library for Saferpay by Six.",
+  "type": "library",
+  "homepage": "https://github.com/nicolasros/saferpay-paypage-sdk-php",
+  "license": "MIT",
+  "keywords": [
+    "Saferpay",
+    "Worldline",
+    "PSP",
+    "Bancontact",
+    "Payments",
+    "Six"
+  ],
+  "version": "0.0.1",
+  "authors": [
+    {
+      "name": "Nicolas Ros",
+      "email": "supportsips-benelux@worldline.com",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "php": ">=7.1.0",
+    "symfony/serializer": "@stable",
+    "symfony/property-access": "@stable",
+    "doctrine/annotations": "@stable",
+    "doctrine/cache": "@stable",
+    "symfony/property-info": "@stable"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "@stable"
+  },
+  "autoload": {
+    "psr-4": {
+      "Worldline\\Saferpay\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Worldline\\Saferpay\\Tests\\": "tests/"
+    }
+  }
+}
