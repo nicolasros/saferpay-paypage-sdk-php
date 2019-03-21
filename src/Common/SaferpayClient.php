@@ -15,11 +15,34 @@ use Worldline\Saferpay\Paypage\Messages\PaypageInitialisationResponse;
 
 class SaferpayClient
 {
+    /**
+     * @var SaferpayEnvironment
+     */
     private $environment;
+    /**
+     * @var string
+     */
     private $customerId;
+    /**
+     * @var string
+     */
     private $terminalId;
+    /**
+     * @var string
+     */
     private $apiUser;
+    /**
+     * @var string
+     */
     private $apiPassword;
+    /**
+     * @var string
+     */
+    private $lastRequestAsJSON;
+    /**
+     * @var string
+     */
+    private $lastResponseAsJSON;
     /**
      * @var Serializer
      */
@@ -51,6 +74,21 @@ class SaferpayClient
         $this->serializer = new Serializer($normalizers, $encoders);
     }
 
+    /**
+     * @return string
+     */
+    public function getLastRequestAsJSON(): string
+    {
+        return $this->lastRequestAsJSON;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLastResponseAsJSON(): string
+    {
+        return $this->lastResponseAsJSON;
+    }
 
     public function send(SaferPayMessage &$request)
     {
@@ -68,6 +106,7 @@ class SaferpayClient
 
     public function do_curl($username,$password,$url, $payload, $responseClass)
     {
+        $this->lastRequestAsJSON = $payload;
         $responseObject = new $responseClass;
         $curl = curl_init($url);
         curl_setopt($curl, CURLOPT_HEADER, false);
@@ -81,6 +120,7 @@ class SaferpayClient
         $jsonResponse = curl_exec($curl);
         $status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
         if($status != 200) {
+            $this->lastResponseAsJSON = curl_multi_getcontent($curl);
             $resp = json_decode(curl_multi_getcontent($curl), true);
             $resp['StatusCode'] = $status;
             $resp['error'] = curl_errno($curl);
