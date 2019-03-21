@@ -21,14 +21,6 @@ class TransactionReference
     private $OrderId;
 
     /**
-     * @return int|null
-     */
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
-
-    /**
      * @param string $TransactionId
      * @return TransactionReference
      */

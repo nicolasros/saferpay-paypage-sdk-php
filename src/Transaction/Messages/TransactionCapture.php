@@ -1,6 +1,6 @@
 <?php
 
-namespace Worldline\Saferpay\Paypage\Messages;
+namespace Worldline\Saferpay\Transaction\Messages;
 
 use Symfony\Component\Serializer\Annotation\Groups;
 use Worldline\Saferpay\Common\Fields\Amount;
@@ -9,13 +9,14 @@ use Worldline\Saferpay\Common\Fields\Marketplace;
 use Worldline\Saferpay\Common\Fields\PendingNotification;
 use Worldline\Saferpay\Common\Fields\RequestHeader;
 use Worldline\Saferpay\Common\Fields\TransactionReference;
+use Worldline\Saferpay\Common\Messages\SaferPayMessage;
 
 
 /**
  * Class TransactionCapture
- * @package Worldline\Saferpay\Paypage\Messages
+ * @package Worldline\Saferpay\Transaction\Messages
  */
-class TransactionCapture
+class TransactionCapture extends SaferPayMessage
 {
     /**
      * @var string

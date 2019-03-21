@@ -1,6 +1,6 @@
 <?php
 
-namespace Worldline\Saferpay\Paypage\Messages;
+namespace Worldline\Saferpay\Transaction\Messages;
 
 use Symfony\Component\Serializer\Annotation\Groups;
 use Worldline\Saferpay\Common\Fields\Invoice;
@@ -8,7 +8,7 @@ use Worldline\Saferpay\Common\Fields\ResponseHeader;
 
 /**
  * Class TransactionCaptureResponse
- * @package Worldline\Saferpay\Paypage\Messages
+ * @package Worldline\Saferpay\Transaction\Messages
  */
 class TransactionCaptureResponse
 {
