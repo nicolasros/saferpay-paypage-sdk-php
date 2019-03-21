@@ -97,12 +97,13 @@ class TransactionCancelResponse
     }
 
     /**
-     * @param \DateTimeInterface $Date
+     * @param string $Date
      * @return TransactionCancelResponse
      */
-    public function setDate(\DateTimeInterface $Date): self
+    public function setDate(string $Date): self
     {
-        $this->Date = $Date;
+        $DateDT = \DateTime::createFromFormat("Y-m-d\TH:i:s.u+P", $Date);
+        $this->Date = $DateDT;
 
         return $this;
     }
