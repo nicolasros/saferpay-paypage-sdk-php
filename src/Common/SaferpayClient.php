@@ -9,6 +9,7 @@ use Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactory;
 use Symfony\Component\Serializer\Serializer;
+use Worldline\Saferpay\Paypage\Messages\ErrorMessage;
 use Worldline\Saferpay\Common\Messages\SaferPayMessage;
 use Worldline\Saferpay\Paypage\Messages\PaypageInitialisation;
 use Worldline\Saferpay\Paypage\Messages\PaypageInitialisationResponse;
@@ -107,7 +108,6 @@ class SaferpayClient
     public function do_curl($username,$password,$url, $payload, $responseClass)
     {
         $this->lastRequestAsJSON = $payload;
-        $responseObject = new $responseClass;
         $curl = curl_init($url);
         curl_setopt($curl, CURLOPT_HEADER, false);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
@@ -119,19 +119,22 @@ class SaferpayClient
         curl_setopt($curl, CURLOPT_USERPWD, $username . ":" . $password);
         $jsonResponse = curl_exec($curl);
         $status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+        $this->lastResponseAsJSON = curl_multi_getcontent($curl);
         if($status != 200) {
-            $this->lastResponseAsJSON = curl_multi_getcontent($curl);
             $resp = json_decode(curl_multi_getcontent($curl), true);
             $resp['StatusCode'] = $status;
             $resp['error'] = curl_errno($curl);
+            var_dump($resp);
+            $resp = json_encode($resp);
+            $obj = $this->serializer->deserialize($resp, ErrorMessage::class, 'json');
         } else {
             $resp = json_decode($jsonResponse, true);
             $resp['StatusCode'] = $status;
             $resp['error'] = "" . curl_errno($curl);
+            $resp = json_encode($resp);
+            $obj = $this->serializer->deserialize($resp, $responseClass, 'json');
         }
-        $resp = json_encode($resp);
         curl_close($curl);
-        $obj = $this->serializer->deserialize($resp, get_class($responseObject), 'json');
 
         return $obj;
     }
