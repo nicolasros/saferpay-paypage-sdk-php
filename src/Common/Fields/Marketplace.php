@@ -12,29 +12,21 @@ class Marketplace
 {
     /**
      * @Groups("RequestParams")
-     * @var string
+     * @var null|string
      */
     private $SubmerchantId;
 
     /**
      * @Groups("RequestParams")
-     * @var Fee
+     * @var null|Fee
      */
     private $Fee;
 
     /**
      * @Groups("RequestParams")
-     * @var FeeRefund
+     * @var null|FeeRefund
      */
     private $FeeRefund;
-
-    /**
-     * @return int|null
-     */
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
 
     /**
      * @Groups("RequestParams")
@@ -46,10 +38,10 @@ class Marketplace
     }
 
     /**
-     * @param string $SubmerchantId
+     * @param null|string $SubmerchantId
      * @return Marketplace
      */
-    public function setSubmerchantId(string $SubmerchantId): self
+    public function setSubmerchantId(?string $SubmerchantId): self
     {
         $this->SubmerchantId = $SubmerchantId;
 

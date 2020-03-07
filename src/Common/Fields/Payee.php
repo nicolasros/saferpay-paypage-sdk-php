@@ -13,25 +13,25 @@ class Payee
 {
     /**
      * @Groups("RequestParams")
-     * @var string
+     * @var null|string
      */
     private $IBAN;
 
     /**
      * @Groups("RequestParams")
-     * @var string
+     * @var null|string
      */
     private $HolderName;
 
     /**
      * @Groups("RequestParams")
-     * @var string
+     * @var null|string
      */
     private $BIC;
 
     /**
      * @Groups("RequestParams")
-     * @var string
+     * @var null|string
      */
     private $BankName;
 
@@ -52,10 +52,10 @@ class Payee
     }
 
     /**
-     * @param string $IBAN
+     * @param null|string $IBAN
      * @return Payee
      */
-    public function setIBAN(string $IBAN): self
+    public function setIBAN(?string $IBAN): self
     {
         $this->IBAN = $IBAN;
 
@@ -71,10 +71,10 @@ class Payee
     }
 
     /**
-     * @param string $HolderName
+     * @param null|string $HolderName
      * @return Payee
      */
-    public function setHolderName(string $HolderName): self
+    public function setHolderName(?string $HolderName): self
     {
         $this->HolderName = $HolderName;
 
@@ -90,10 +90,10 @@ class Payee
     }
 
     /**
-     * @param string $BIC
+     * @param null|string $BIC
      * @return Payee
      */
-    public function setBIC(string $BIC): self
+    public function setBIC(?string $BIC): self
     {
         $this->BIC = $BIC;
 
@@ -109,10 +109,10 @@ class Payee
     }
 
     /**
-     * @param string $BankName
+     * @param null|string $BankName
      * @return Payee
      */
-    public function setBankName(string $BankName): self
+    public function setBankName(?string $BankName): self
     {
         $this->BankName = $BankName;
 

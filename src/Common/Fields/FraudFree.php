@@ -12,25 +12,25 @@ class FraudFree
 {
     /**
      * @Groups("RequestParams")
-     * @var bool
+     * @var null|bool
      */
     private $LiabilityShift;
 
     /**
      * @Groups("RequestParams")
-     * @var float
+     * @var null|float
      */
     private $Score;
 
     /**
      * @Groups("RequestParams")
-     * @var array
+     * @var null|array
      */
     private $Investigationpoints;
 
     /**
      * @Groups("RequestParams")
-     * @var string
+     * @var null|string
      */
     private $ErrorMessage;
 
@@ -43,10 +43,10 @@ class FraudFree
     }
 
     /**
-     * @param bool $LiabilityShift
+     * @param null| bool $LiabilityShift
      * @return FraudFree
      */
-    public function setLiabilityShift(bool $LiabilityShift): self
+    public function setLiabilityShift(?bool $LiabilityShift): self
     {
         $this->LiabilityShift = $LiabilityShift;
 
@@ -62,10 +62,10 @@ class FraudFree
     }
 
     /**
-     * @param float $Score
+     * @param null| float $Score
      * @return FraudFree
      */
-    public function setScore(float $Score): self
+    public function setScore(?float $Score): self
     {
         $this->Score = $Score;
 
@@ -81,10 +81,10 @@ class FraudFree
     }
 
     /**
-     * @param array $Investigationpoints
+     * @param null| array $Investigationpoints
      * @return FraudFree
      */
-    public function setInvestigationpoints(array $Investigationpoints): self
+    public function setInvestigationpoints(?array $Investigationpoints): self
     {
         $this->Investigationpoints = $Investigationpoints;
 
@@ -100,10 +100,10 @@ class FraudFree
     }
 
     /**
-     * @param string $ErrorMessage
+     * @param null| string $ErrorMessage
      * @return FraudFree
      */
-    public function setErrorMessage(string $ErrorMessage): self
+    public function setErrorMessage(?string $ErrorMessage): self
     {
         $this->ErrorMessage = $ErrorMessage;
 

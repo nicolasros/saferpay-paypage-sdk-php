@@ -11,17 +11,17 @@ use Symfony\Component\Serializer\Annotation\Groups;
 class RegistrationResult
 {
     /**
-     * @var bool
+     * @var null|bool
      */
     private $Success;
 
     /**
-     * @var Alias
+     * @var null|Alias
      */
     private $Alias;
 
     /**
-     * @var Error
+     * @var null|Error
      */
     private $Error;
 
@@ -34,10 +34,10 @@ class RegistrationResult
     }
 
     /**
-     * @param bool $Success
+     * @param null|bool $Success
      * @return RegistrationResult
      */
-    public function setSuccess(bool $Success): self
+    public function setSuccess(?bool $Success): self
     {
         $this->Success = $Success;
 

@@ -12,13 +12,13 @@ class FeeRefund
 {
     /**
      * @Groups("RequestParams")
-     * @var string
+     * @var null|string
      */
     private $Value;
 
     /**
      * @Groups("RequestParams")
-     * @var string
+     * @var null|string
      */
     private $CurrencyCode;
 
@@ -31,10 +31,10 @@ class FeeRefund
     }
 
     /**
-     * @param string $Value
+     * @param null|string $Value
      * @return FeeRefund
      */
-    public function setValue(string $Value): self
+    public function setValue(?string $Value): self
     {
         $this->Value = $Value;
 
@@ -50,10 +50,10 @@ class FeeRefund
     }
 
     /**
-     * @param string $CurrencyCode
+     * @param null|string $CurrencyCode
      * @return FeeRefund
      */
-    public function setCurrencyCode(string $CurrencyCode): self
+    public function setCurrencyCode(?string $CurrencyCode): self
     {
         $this->CurrencyCode = $CurrencyCode;
 

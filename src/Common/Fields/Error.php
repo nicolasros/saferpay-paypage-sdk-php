@@ -12,13 +12,13 @@ class Error
 {
     /**
      * @Groups("RequestParams")
-     * @var string
+     * @var null|string
      */
     private $ErrorName;
 
     /**
      * @Groups("RequestParams")
-     * @var string
+     * @var null|string
      */
     private $ErrorMessage;
 
@@ -31,10 +31,10 @@ class Error
     }
 
     /**
-     * @param string $ErrorName
+     * @param null|string $ErrorName
      * @return Error
      */
-    public function setErrorName(string $ErrorName): self
+    public function setErrorName(?string $ErrorName): self
     {
         $this->ErrorName = $ErrorName;
 
@@ -50,10 +50,10 @@ class Error
     }
 
     /**
-     * @param string $ErrorMessage
+     * @param null|string $ErrorMessage
      * @return Error
      */
-    public function setErrorMessage(string $ErrorMessage): self
+    public function setErrorMessage(?string $ErrorMessage): self
     {
         $this->ErrorMessage = $ErrorMessage;
 

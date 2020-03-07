@@ -4,91 +4,130 @@ namespace Worldline\Saferpay\Common\Fields;
 
 use Symfony\Component\Serializer\Annotation\Groups;
 
+/**
+ * Class RequestHeader
+ * @package Worldline\Saferpay\Common\Fields
+ */
 class RequestHeader
 {
     /**
      * @Groups("RequestParams")
-     * @var string
+     * @var null|string
      */
     private $SpecVersion;
 
     /**
      * @Groups("RequestParams")
-     * @var string
+     * @var null|string
      */
     private $CustomerId;
 
     /**
      * @Groups("RequestParams")
-     * @var string
+     * @var null|string
      */
     private $RequestId;
 
     /**
      * @Groups("RequestParams")
-     * @var integer
+     * @var null|integer
      */
     private $RetryIndicator;
 
     /**
      * @Groups("RequestParams")
-     * @var ClientInfo
+     * @var null|ClientInfo
      */
     private $ClientInfo;
 
+    /**
+     * @return string|null
+     */
     public function getSpecVersion(): ?string
     {
         return $this->SpecVersion;
     }
 
-    public function setSpecVersion(string $SpecVersion): self
+    /**
+     * @param string|null $SpecVersion
+     * @return $this
+     */
+    public function setSpecVersion(?string $SpecVersion): self
     {
         $this->SpecVersion = $SpecVersion;
 
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getCustomerId(): ?string
     {
         return $this->CustomerId;
     }
 
-    public function setCustomerId(string $CustomerId): self
+    /**
+     * @param string|null $CustomerId
+     * @return $this
+     */
+    public function setCustomerId(?string $CustomerId): self
     {
         $this->CustomerId = $CustomerId;
 
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getRequestId(): ?string
     {
         return $this->RequestId;
     }
 
-    public function setRequestId(string $RequestId): self
+    /**
+     * @param string|null $RequestId
+     * @return $this
+     */
+    public function setRequestId(?string $RequestId): self
     {
         $this->RequestId = $RequestId;
 
         return $this;
     }
 
+    /**
+     * @return int|null
+     */
     public function getRetryIndicator(): ?int
     {
         return $this->RetryIndicator;
     }
 
-    public function setRetryIndicator(int $RetryIndicator): self
+    /**
+     * @param int|null $RetryIndicator
+     * @return $this
+     */
+    public function setRetryIndicator(?int $RetryIndicator): self
     {
         $this->RetryIndicator = $RetryIndicator;
 
         return $this;
     }
 
+    /**
+     * @return ClientInfo|null
+     */
     public function getClientInfo(): ?ClientInfo
     {
         return $this->ClientInfo;
     }
 
+    /**
+     * @param ClientInfo|null $ClientInfo
+     * @return $this
+     */
     public function setClientInfo(?ClientInfo $ClientInfo): self
     {
         $this->ClientInfo = $ClientInfo;

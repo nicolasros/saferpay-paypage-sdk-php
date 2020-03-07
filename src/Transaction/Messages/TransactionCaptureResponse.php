@@ -13,27 +13,27 @@ use Worldline\Saferpay\Common\Fields\ResponseHeader;
 class TransactionCaptureResponse
 {
     /**
-     * @var ResponseHeader
+     * @var null|ResponseHeader
      */
     private $ResponseHeader;
 
     /**
-     * @var string
+     * @var null|string
      */
     private $CaptureId;
 
     /**
-     * @var string
+     * @var null|string
      */
     private $Status;
 
     /**
-     * @var \DateTime
+     * @var null|string
      */
     private $Date;
 
     /**
-     * @var Invoice
+     * @var null|Invoice
      */
     private $Invoice;
 
@@ -65,10 +65,10 @@ class TransactionCaptureResponse
     }
 
     /**
-     * @param string $CaptureId
+     * @param null|string $CaptureId
      * @return TransactionCaptureResponse
      */
-    public function setCaptureId(string $CaptureId): self
+    public function setCaptureId(?string $CaptureId): self
     {
         $this->CaptureId = $CaptureId;
 
@@ -84,10 +84,10 @@ class TransactionCaptureResponse
     }
 
     /**
-     * @param string $Status
+     * @param null|string $Status
      * @return TransactionCaptureResponse
      */
-    public function setStatus(string $Status): self
+    public function setStatus(?string $Status): self
     {
         $this->Status = $Status;
 
@@ -95,21 +95,20 @@ class TransactionCaptureResponse
     }
 
     /**
-     * @return \DateTimeInterface|null
+     * @return string|null
      */
-    public function getDate(): ?\DateTimeInterface
+    public function getDate(): ?string
     {
-        return $this->Date;
+        return \DateTime::createFromFormat("Y-m-d\TH:i:s.u+P", $this->Date);
     }
 
     /**
-     * @param string $Date
+     * @param null|string $Date
      * @return TransactionCaptureResponse
      */
-    public function setDate(string $Date): self
+    public function setDate(?string $Date): self
     {
-        $DateDT = \DateTime::createFromFormat("Y-m-d\TH:i:s.u+P", $Date);
-        $this->Date = $DateDT;
+        $this->Date = $Date;
 
         return $this;
     }

@@ -12,37 +12,37 @@ class Card
 {
     /**
      * @Groups("RequestParams")
-     * @var string
+     * @var null|string
      */
     private $MaskedNumber;
 
     /**
      * @Groups("RequestParams")
-     * @var int
+     * @var null|int
      */
     private $ExpYear;
 
     /**
      * @Groups("RequestParams")
-     * @var int
+     * @var null|int
      */
     private $ExpMonth;
 
     /**
      * @Groups("RequestParams")
-     * @var string
+     * @var null|string
      */
     private $HolderName;
 
     /**
      * @Groups("RequestParams")
-     * @var string
+     * @var null|string
      */
     private $CountryCode;
 
     /**
      * @Groups("RequestParams")
-     * @var string
+     * @var null|string
      */
     private $HashValue;
 
@@ -55,10 +55,10 @@ class Card
     }
 
     /**
-     * @param string $MaskedNumber
+     * @param null|string $MaskedNumber
      * @return Card
      */
-    public function setMaskedNumber(string $MaskedNumber): self
+    public function setMaskedNumber(?string $MaskedNumber): self
     {
         $this->MaskedNumber = $MaskedNumber;
 
@@ -74,10 +74,10 @@ class Card
     }
 
     /**
-     * @param int $ExpYear
+     * @param null|int $ExpYear
      * @return Card
      */
-    public function setExpYear(int $ExpYear): self
+    public function setExpYear(?int $ExpYear): self
     {
         $this->ExpYear = $ExpYear;
 
@@ -93,10 +93,10 @@ class Card
     }
 
     /**
-     * @param int $ExpMonth
+     * @param null|int $ExpMonth
      * @return Card
      */
-    public function setExpMonth(int $ExpMonth): self
+    public function setExpMonth(?int $ExpMonth): self
     {
         $this->ExpMonth = $ExpMonth;
 
@@ -112,10 +112,10 @@ class Card
     }
 
     /**
-     * @param string $HolderName
+     * @param null|string $HolderName
      * @return Card
      */
-    public function setHolderName(string $HolderName): self
+    public function setHolderName(?string $HolderName): self
     {
         $this->HolderName = $HolderName;
 
@@ -131,10 +131,10 @@ class Card
     }
 
     /**
-     * @param string $CountryCode
+     * @param null|string $CountryCode
      * @return Card
      */
-    public function setCountryCode(string $CountryCode): self
+    public function setCountryCode(?string $CountryCode): self
     {
         $this->CountryCode = $CountryCode;
 
@@ -150,10 +150,10 @@ class Card
     }
 
     /**
-     * @param string $HashValue
+     * @param null|string $HashValue
      * @return Card
      */
-    public function setHashValue(string $HashValue): self
+    public function setHashValue(?string $HashValue): self
     {
         $this->HashValue = $HashValue;
 

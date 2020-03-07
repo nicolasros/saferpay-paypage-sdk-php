@@ -12,25 +12,25 @@ class ThreeDs
 {
     /**
      * @Groups("RequestParams")
-     * @var bool
+     * @var null|bool
      */
     private $Authenticated;
 
     /**
      * @Groups("RequestParams")
-     * @var bool
+     * @var null|bool
      */
     private $LiabilityShift;
 
     /**
      * @Groups("RequestParams")
-     * @var string
+     * @var null|string
      */
     private $Xid;
 
     /**
      * @Groups("RequestParams")
-     * @var string
+     * @var null|string
      */
     private $VerificationValue;
 
@@ -47,7 +47,7 @@ class ThreeDs
      * @param bool $Authenticated
      * @return ThreeDs
      */
-    public function setAuthenticated(bool $Authenticated): self
+    public function setAuthenticated(?bool $Authenticated): self
     {
         $this->Authenticated = $Authenticated;
 
@@ -63,10 +63,10 @@ class ThreeDs
     }
 
     /**
-     * @param bool $LiabilityShift
+     * @param null|bool $LiabilityShift
      * @return ThreeDs
      */
-    public function setLiabilityShift(bool $LiabilityShift): self
+    public function setLiabilityShift(?bool $LiabilityShift): self
     {
         $this->LiabilityShift = $LiabilityShift;
 
@@ -82,10 +82,10 @@ class ThreeDs
     }
 
     /**
-     * @param string $Xid
+     * @param null|string $Xid
      * @return ThreeDs
      */
-    public function setXid(string $Xid): self
+    public function setXid(?string $Xid): self
     {
         $this->Xid = $Xid;
 
@@ -101,10 +101,10 @@ class ThreeDs
     }
 
     /**
-     * @param string $VerificationValue
+     * @param null|string $VerificationValue
      * @return ThreeDs
      */
-    public function setVerificationValue(string $VerificationValue): self
+    public function setVerificationValue(?string $VerificationValue): self
     {
         $this->VerificationValue = $VerificationValue;
 

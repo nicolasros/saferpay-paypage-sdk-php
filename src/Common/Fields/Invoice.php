@@ -13,19 +13,19 @@ class Invoice
 {
     /**
      * @Groups("RequestParams")
-     * @var Payee
+     * @var null|Payee
      */
     private $Payee;
 
     /**
      * @Groups("RequestParams")
-     * @var string
+     * @var null|string
      */
     private $ReasonForTransfer;
 
     /**
      * @Groups("RequestParams")
-     * @var \DateTime
+     * @var null|string
      */
     private $DueDate;
 
@@ -57,10 +57,10 @@ class Invoice
     }
 
     /**
-     * @param string $ReasonForTransfer
+     * @param null|string $ReasonForTransfer
      * @return Invoice
      */
-    public function setReasonForTransfer(string $ReasonForTransfer): self
+    public function setReasonForTransfer(?string $ReasonForTransfer): self
     {
         $this->ReasonForTransfer = $ReasonForTransfer;
 
@@ -68,22 +68,20 @@ class Invoice
     }
 
     /**
-     * @return \DateTimeInterface|null
+     * @return string|null
      */
-    public function getDueDate(): ?\DateTimeInterface
+    public function getDueDate(): ?string
     {
-        // TODO make all getDate function return a string.
-        return $this->DueDate;
+        return \DateTime::createFromFormat("Y-m-d\TH:i:s.u+P", $this->DueDate);
     }
 
     /**
-     * @param string $DueDate
+     * @param null|string $DueDate
      * @return Invoice
      */
-    public function setDueDate(string $DueDate): self
+    public function setDueDate(?string $DueDate): self
     {
-        $DateDT = \DateTime::createFromFormat("Y-m-d\TH:i:s.u+P", $DueDate);
-        $this->DueDate = $DateDT;
+        $this->DueDate = $DueDate;
 
         return $this;
     }

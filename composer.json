@@ -26,7 +26,8 @@
     "symfony/property-access": "@stable",
     "doctrine/annotations": "@stable",
     "doctrine/cache": "@stable",
-    "symfony/property-info": "@stable"
+    "symfony/property-info": "@stable",
+    "ext-curl": "*"
   },
   "require-dev": {
     "phpunit/phpunit": "@stable"

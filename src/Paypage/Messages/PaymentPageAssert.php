@@ -13,19 +13,19 @@ use Worldline\Saferpay\Common\Messages\SaferPayMessage;
 class PaymentPageAssert extends SaferPayMessage
 {
     /**
-     * @var string
+     * @var null|string
      */
     private $serviceUrl = "api/Payment/v1/PaymentPage/Assert";
 
     /**
      * @Groups("RequestParams")
-     * @var RequestHeader
+     * @var null|RequestHeader
      */
     public $RequestHeader;
 
     /**
      * @Groups("RequestParams")
-     * @var string
+     * @var null|string
      */
     public $Token;
 
@@ -38,36 +38,36 @@ class PaymentPageAssert extends SaferPayMessage
     }
 
     /**
-     * @return RequestHeader
+     * @return null|RequestHeader
      */
-    public function getRequestHeader(): RequestHeader
+    public function getRequestHeader(): ?RequestHeader
     {
         return $this->RequestHeader;
     }
 
     /**
-     * @param RequestHeader $RequestHeader
+     * @param null|RequestHeader $RequestHeader
      * @return PaymentPageAssert
      */
-    public function setRequestHeader(RequestHeader $RequestHeader): self
+    public function setRequestHeader(?RequestHeader $RequestHeader): self
     {
         $this->RequestHeader = $RequestHeader;
         return $this;
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getToken(): string
+    public function getToken(): ?string
     {
         return $this->Token;
     }
 
     /**
-     * @param string $Token
+     * @param null|string $Token
      * @return PaymentPageAssert
      */
-    public function setToken(string $Token): self
+    public function setToken(?string $Token): self
     {
         $this->Token = $Token;
         return $this;

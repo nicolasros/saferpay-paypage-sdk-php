@@ -12,7 +12,7 @@ class Billpay
 {
     /**
      * @Groups("RequestParams")
-     * @var int
+     * @var null|int
      */
     private $DelayInDays;
 
@@ -26,10 +26,10 @@ class Billpay
     }
 
     /**
-     * @param int $DelayInDays
+     * @param null|int $DelayInDays
      * @return Billpay
      */
-    public function setDelayInDays(int $DelayInDays): self
+    public function setDelayInDays(?int $DelayInDays): self
     {
         $this->DelayInDays = $DelayInDays;
 

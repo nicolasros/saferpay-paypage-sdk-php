@@ -15,19 +15,19 @@ use Worldline\Saferpay\Common\Messages\SaferPayMessage;
 class TransactionCancel extends SaferPayMessage
 {
     /**
-     * @var string
+     * @var null|string
      */
     private $serviceUrl = "api/Payment/v1/Transaction/Cancel";
 
     /**
      * @Groups("RequestParams")
-     * @var RequestHeader
+     * @var null|RequestHeader
      */
     private $RequestHeader;
 
     /**
      * @Groups("RequestParams")
-     * @var TransactionReference
+     * @var null|TransactionReference
      */
     private $TransactionReference;
 

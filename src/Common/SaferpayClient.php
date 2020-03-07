@@ -5,8 +5,12 @@ namespace Worldline\Saferpay\Common;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
+use Symfony\Component\PropertyInfo\Extractor\PhpDocExtractor;
 use Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor;
+use Symfony\Component\PropertyInfo\PropertyInfoExtractor;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
+use Symfony\Component\Serializer\Normalizer\ArrayDenormalizer;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Mapping\Factory\ClassMetadataFactory;
 use Symfony\Component\Serializer\Serializer;
 use Worldline\Saferpay\Paypage\Messages\ErrorMessage;
@@ -69,26 +73,36 @@ class SaferpayClient
         $this->apiUser = $apiUser;
         $this->apiPassword = $apiPassword;
         $encoders = [new JsonEncoder()];
-        $excludeNullNormalizer = new ExcludeNullNormalizer(null, null, null, new ReflectionExtractor() );
-        $excludeNullNormalizer->setIgnoredAttributes(['serviceUrl']);
-        $normalizers = [$excludeNullNormalizer];
+        //$normalizers = [new ObjectNormalizer()];
+        $extractor = new PropertyInfoExtractor([], [new PhpDocExtractor(), new ReflectionExtractor()]);
+        $normalizers = [new ArrayDenormalizer(), new ObjectNormalizer(null, null, null, $extractor)];
         $this->serializer = new Serializer($normalizers, $encoders);
     }
 
     /**
+     * @param bool $prettyPrint
      * @return string
      */
-    public function getLastRequestAsJSON(): string
+    public function getLastRequestAsJson($prettyPrint = false): string
     {
-        return $this->lastRequestAsJSON;
+        if ($prettyPrint) {
+            return json_encode(json_decode($this->lastRequestAsJSON,true),JSON_PRETTY_PRINT);
+        } else {
+            return $this->lastRequestAsJSON;
+        }
     }
 
     /**
+     * @param bool $prettyPrint
      * @return string
      */
-    public function getLastResponseAsJSON(): string
+    public function getLastResponseAsJson($prettyPrint = false): string
     {
-        return $this->lastResponseAsJSON;
+        if ($prettyPrint) {
+            return json_encode(json_decode($this->lastResponseAsJSON,true),JSON_PRETTY_PRINT);
+        } else {
+            return $this->lastResponseAsJSON;
+        }
     }
 
     public function send(SaferPayMessage &$request)
@@ -98,7 +112,8 @@ class SaferpayClient
             $request->setTerminalId($this->terminalId);
         }
         $request->getRequestHeader()->setCustomerId($this->customerId);
-        $json = $this->serializer->serialize($request, 'json', ['groups' => 'RequestParams']);
+        $json = $this->serializer->serialize($request, 'json', ['groups' => 'RequestParams','ignored_attributes' => ['serviceUrl'], 'skip_null_values' => true]);
+        //$json = $this->serializer->serialize($request, 'json', ['groups' => 'RequestParams']);
         $url = $this->environment->getEnvironment() . $request->getServiceUrl();
         $response = $this->do_curl($this->apiUser, $this->apiPassword, $url, $json, $className);
         
@@ -126,12 +141,14 @@ class SaferpayClient
             $resp['error'] = curl_errno($curl);
             var_dump($resp);
             $resp = json_encode($resp);
+            //$obj = $resp;
             $obj = $this->serializer->deserialize($resp, ErrorMessage::class, 'json');
         } else {
             $resp = json_decode($jsonResponse, true);
             $resp['StatusCode'] = $status;
             $resp['error'] = "" . curl_errno($curl);
             $resp = json_encode($resp);
+            //$obj = $resp;
             $obj = $this->serializer->deserialize($resp, $responseClass, 'json');
         }
         curl_close($curl);

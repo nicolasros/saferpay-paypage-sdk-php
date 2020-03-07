@@ -11,7 +11,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 class Twint
 {
     /**
-     * @var \DateTimeInterface
+     * @var null|\DateTimeInterface
      */
     private $CertificateExpirationDate;
 
@@ -24,10 +24,10 @@ class Twint
     }
 
     /**
-     * @param string $CertificateExpirationDate
+     * @param null|string $CertificateExpirationDate
      * @return Twint
      */
-    public function setCertificateExpirationDate(string $CertificateExpirationDate): self
+    public function setCertificateExpirationDate(?string $CertificateExpirationDate): self
     {
         $CertificateExpirationDateDT = \DateTime::createFromFormat("Y-m-d\TH:i:s.u+P", $CertificateExpirationDate);
         $this->CertificateExpirationDate = $CertificateExpirationDateDT;

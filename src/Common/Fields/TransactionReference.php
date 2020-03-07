@@ -11,20 +11,20 @@ use Symfony\Component\Serializer\Annotation\Groups;
 class TransactionReference
 {
     /**
-     * @var string
+     * @var null|string
      */
     private $TransactionId;
 
     /**
-     * @var string
+     * @var null|string
      */
     private $OrderId;
 
     /**
-     * @param string $TransactionId
+     * @param null|string $TransactionId
      * @return TransactionReference
      */
-    public function setTransactionId(string $TransactionId): self
+    public function setTransactionId(?string $TransactionId): self
     {
         $this->TransactionId = $TransactionId;
 
@@ -40,10 +40,10 @@ class TransactionReference
     }
 
     /**
-     * @param string $OrderId
+     * @param null|string $OrderId
      * @return TransactionReference
      */
-    public function setOrderId(string $OrderId): self
+    public function setOrderId(?string $OrderId): self
     {
         $this->OrderId = $OrderId;
 

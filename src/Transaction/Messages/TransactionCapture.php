@@ -19,43 +19,43 @@ use Worldline\Saferpay\Common\Messages\SaferPayMessage;
 class TransactionCapture extends SaferPayMessage
 {
     /**
-     * @var string
+     * @var null|string
      */
     private $serviceUrl = "api/Payment/v1/Transaction/Capture";
     
     /**
      * @Groups("RequestParams")
-     * @var RequestHeader
+     * @var null|RequestHeader
      */
     private $RequestHeader;
 
     /**
      * @Groups("RequestParams")
-     * @var TransactionReference
+     * @var null|TransactionReference
      */
     private $TransactionReference;
 
     /**
      * @Groups("RequestParams")
-     * @var Amount
+     * @var null|Amount
      */
     private $Amount;
 
     /**
      * @Groups("RequestParams")
-     * @var Billpay
+     * @var null|Billpay
      */
     private $Billpay;
 
     /**
      * @Groups("RequestParams")
-     * @var PendingNotification
+     * @var null|PendingNotification
      */
     private $PendingNotification;
 
     /**
      * @Groups("RequestParams")
-     * @var Marketplace
+     * @var null|Marketplace
      */
     private $Marketplace;
 

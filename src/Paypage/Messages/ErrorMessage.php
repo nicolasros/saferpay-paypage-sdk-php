@@ -11,47 +11,47 @@ use Worldline\Saferpay\Common\Fields\ResponseHeader;
 class ErrorMessage
 {
     /**
-     * @var ResponseHeader
+     * @var null|ResponseHeader
      */
     private $ResponseHeader;
 
     /**
-     * @var string
+     * @var null|string
      */
     private $Behavior;
 
     /**
-     * @var string
+     * @var null|string
      */
     private $ErrorName;
 
     /**
-     * @var string
+     * @var null|string
      */
     private $ErrorMessage;
 
     /**
-     * @var string
+     * @var null|string
      */
     private $TransactionId;
 
     /**
-     * @var array
+     * @var null|array
      */
     private $ErrorDetail;
 
     /**
-     * @var string
+     * @var null|string
      */
     private $ProcessorName;
 
     /**
-     * @var string
+     * @var null|string
      */
     private $ProcessorResult;
 
     /**
-     * @var string
+     * @var null|string
      */
     private $ProcessorMessage;
 
@@ -87,10 +87,10 @@ class ErrorMessage
     }
 
     /**
-     * @param string $Behavior
+     * @param null|string $Behavior
      * @return ErrorMessage
      */
-    public function setBehavior(string $Behavior): self
+    public function setBehavior(?string $Behavior): self
     {
         $this->Behavior = $Behavior;
 
@@ -106,10 +106,10 @@ class ErrorMessage
     }
 
     /**
-     * @param string $ErrorName
+     * @param null|string $ErrorName
      * @return ErrorMessage
      */
-    public function setErrorName(string $ErrorName): self
+    public function setErrorName(?string $ErrorName): self
     {
         $this->ErrorName = $ErrorName;
 
@@ -125,10 +125,10 @@ class ErrorMessage
     }
 
     /**
-     * @param string $ErrorMessage
+     * @param null|string $ErrorMessage
      * @return ErrorMessage
      */
-    public function setErrorMessage(string $ErrorMessage): self
+    public function setErrorMessage(?string $ErrorMessage): self
     {
         $this->ErrorMessage = $ErrorMessage;
 
@@ -144,10 +144,10 @@ class ErrorMessage
     }
 
     /**
-     * @param string $TransactionId
+     * @param null|string $TransactionId
      * @return ErrorMessage
      */
-    public function setTransactionId(string $TransactionId): self
+    public function setTransactionId(?string $TransactionId): self
     {
         $this->TransactionId = $TransactionId;
 
@@ -163,10 +163,10 @@ class ErrorMessage
     }
 
     /**
-     * @param array $ErrorDetail
+     * @param null|array $ErrorDetail
      * @return ErrorMessage
      */
-    public function setErrorDetail(array $ErrorDetail): self
+    public function setErrorDetail(?array $ErrorDetail): self
     {
         $this->ErrorDetail = $ErrorDetail;
 
@@ -182,10 +182,10 @@ class ErrorMessage
     }
 
     /**
-     * @param string $ProcessorName
+     * @param null|string $ProcessorName
      * @return ErrorMessage
      */
-    public function setProcessorName(string $ProcessorName): self
+    public function setProcessorName(?string $ProcessorName): self
     {
         $this->ProcessorName = $ProcessorName;
 
@@ -201,10 +201,10 @@ class ErrorMessage
     }
 
     /**
-     * @param string $ProcessorResult
+     * @param null|string $ProcessorResult
      * @return ErrorMessage
      */
-    public function setProcessorResult(string $ProcessorResult): self
+    public function setProcessorResult(?string $ProcessorResult): self
     {
         $this->ProcessorResult = $ProcessorResult;
 
@@ -220,10 +220,10 @@ class ErrorMessage
     }
 
     /**
-     * @param string $ProcessorMessage
+     * @param null|string $ProcessorMessage
      * @return ErrorMessage
      */
-    public function setProcessorMessage(string $ProcessorMessage): self
+    public function setProcessorMessage(?string $ProcessorMessage): self
     {
         $this->ProcessorMessage = $ProcessorMessage;
 

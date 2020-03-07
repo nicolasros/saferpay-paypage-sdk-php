@@ -4,25 +4,36 @@ namespace Worldline\Saferpay\Common\Fields;
 
 use Symfony\Component\Serializer\Annotation\Groups;
 
+/**
+ * Class BillingAddressForm
+ * @package Worldline\Saferpay\Common\Fields
+ */
 class BillingAddressForm
 {
     /**
      * @Groups("RequestParams")
-     * @var boolean
+     * @var null|boolean
      */
     private $Display;
 
     /**
      * @Groups("RequestParams")
-     * @var array
+     * @var null|array
      */
     private $MandatoryFields = [];
 
+    /**
+     * @return bool|null
+     */
     public function getDisplay(): ?bool
     {
         return $this->Display;
     }
 
+    /**
+     * @param bool $Display
+     * @return $this
+     */
     public function setDisplay(bool $Display): self
     {
         $this->Display = $Display;
@@ -30,11 +41,18 @@ class BillingAddressForm
         return $this;
     }
 
+    /**
+     * @return array|null
+     */
     public function getMandatoryFields(): ?array
     {
         return $this->MandatoryFields;
     }
 
+    /**
+     * @param array|null $MandatoryFields
+     * @return $this
+     */
     public function setMandatoryFields(?array $MandatoryFields): self
     {
         $this->MandatoryFields = $MandatoryFields;

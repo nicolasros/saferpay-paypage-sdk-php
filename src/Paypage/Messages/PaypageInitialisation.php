@@ -15,119 +15,140 @@ use Worldline\Saferpay\Common\Fields\ReturnUrls;
 use Worldline\Saferpay\Common\Fields\Styling;
 use Worldline\Saferpay\Common\Messages\SaferPayMessage;
 
+/**
+ * Class PaypageInitialisation
+ * @package Worldline\Saferpay\Paypage\Messages
+ */
 class PaypageInitialisation extends SaferPayMessage
 {
     /**
-     * @var string
+     * @var null|string
      */
     private $serviceUrl = "api/Payment/v1/PaymentPage/Initialize";
 
     /**
      * @Groups("RequestParams")
-     * @var RequestHeader
+     * @var null|RequestHeader
      */
     private $RequestHeader;
 
     /**
      * @Groups("RequestParams")
-     * @var string
+     * @var null|string
      */
     private $ConfigSet;
 
     /**
      * @Groups("RequestParams")
-     * @var string
+     * @var null|string
      */
     private $TerminalId;
 
     /**
      * @Groups("RequestParams")
-     * @var Payment
+     * @var null|Payment
      */
     private $Payment;
 
     /**
      * @Groups("RequestParams")
-     * @var array
+     * @var null|array
      */
     private $PaymentMethods;
 
     /**
      * @Groups("RequestParams")
-     * @var array
+     * @var null|array
      */
     private $Wallets;
 
     /**
      * @Groups("RequestParams")
-     * @var Payer
+     * @var null|Payer
      */
     private $Payer;
 
     /**
      * @Groups("RequestParams")
-     * @var RegisterAlias
+     * @var null|RegisterAlias
      */
     private $RegisterAlias;
 
     /**
      * @Groups("RequestParams")
-     * @var ReturnUrls
+     * @var null|ReturnUrls
      */
     private $ReturnUrls;
 
     /**
      * @Groups("RequestParams")
-     * @var Notification
+     * @var null|Notification
      */
     private $Notification;
 
     /**
      * @Groups("RequestParams")
-     * @var Styling
+     * @var null|Styling
      */
     private $Styling;
 
     /**
      * @Groups("RequestParams")
-     * @var BillingAddressForm
+     * @var null|BillingAddressForm
      */
     private $BillingAddressForm;
 
     /**
      * @Groups("RequestParams")
-     * @var DeliveryAddressForm
+     * @var null|DeliveryAddressForm
      */
     private $DeliveryAddressForm;
 
     /**
      * @Groups("RequestParams")
-     * @var CardForm
+     * @var null|CardForm
      */
     private $CardForm;
 
+    /**
+     * @return string
+     */
     public function getServiceUrl(): string
     {
         return $this->serviceUrl;
     }
 
+    /**
+     * @return RequestHeader|null
+     */
     public function getRequestHeader(): ?RequestHeader
     {
         return $this->RequestHeader;
     }
 
-    public function setRequestHeader(RequestHeader $RequestHeader): self
+    /**
+     * @param RequestHeader|null $RequestHeader
+     * @return $this
+     */
+    public function setRequestHeader(?RequestHeader $RequestHeader): self
     {
         $this->RequestHeader = $RequestHeader;
 
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getConfigSet(): ?string
     {
         return $this->ConfigSet;
     }
 
+    /**
+     * @param string|null $ConfigSet
+     * @return $this
+     */
     public function setConfigSet(?string $ConfigSet): self
     {
         $this->ConfigSet = $ConfigSet;
@@ -135,35 +156,56 @@ class PaypageInitialisation extends SaferPayMessage
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getTerminalId(): ?string
     {
         return $this->TerminalId;
     }
 
-    public function setTerminalId(string $TerminalId): self
+    /**
+     * @param string|null $TerminalId
+     * @return $this
+     */
+    public function setTerminalId(?string $TerminalId): self
     {
         $this->TerminalId = $TerminalId;
 
         return $this;
     }
 
+    /**
+     * @return Payment|null
+     */
     public function getPayment(): ?Payment
     {
         return $this->Payment;
     }
 
-    public function setPayment(Payment $Payment): self
+    /**
+     * @param Payment|null $Payment
+     * @return $this
+     */
+    public function setPayment(?Payment $Payment): self
     {
         $this->Payment = $Payment;
 
         return $this;
     }
 
+    /**
+     * @return array|null
+     */
     public function getPaymentMethods(): ?array
     {
         return $this->PaymentMethods;
     }
 
+    /**
+     * @param array|null $PaymentMethods
+     * @return $this
+     */
     public function setPaymentMethods(?array $PaymentMethods): self
     {
         $this->PaymentMethods = $PaymentMethods;
@@ -171,11 +213,18 @@ class PaypageInitialisation extends SaferPayMessage
         return $this;
     }
 
+    /**
+     * @return array|null
+     */
     public function getWallets(): ?array
     {
         return $this->Wallets;
     }
 
+    /**
+     * @param array|null $Wallets
+     * @return $this
+     */
     public function setWallets(?array $Wallets): self
     {
         $this->Wallets = $Wallets;
@@ -183,11 +232,18 @@ class PaypageInitialisation extends SaferPayMessage
         return $this;
     }
 
+    /**
+     * @return Payer|null
+     */
     public function getPayer(): ?Payer
     {
         return $this->Payer;
     }
 
+    /**
+     * @param Payer|null $Payer
+     * @return $this
+     */
     public function setPayer(?Payer $Payer): self
     {
         $this->Payer = $Payer;
@@ -195,11 +251,18 @@ class PaypageInitialisation extends SaferPayMessage
         return $this;
     }
 
+    /**
+     * @return RegisterAlias|null
+     */
     public function getRegisterAlias(): ?RegisterAlias
     {
         return $this->RegisterAlias;
     }
 
+    /**
+     * @param RegisterAlias|null $RegisterAlias
+     * @return $this
+     */
     public function setRegisterAlias(?RegisterAlias $RegisterAlias): self
     {
         $this->RegisterAlias = $RegisterAlias;
@@ -207,23 +270,37 @@ class PaypageInitialisation extends SaferPayMessage
         return $this;
     }
 
+    /**
+     * @return ReturnUrls|null
+     */
     public function getReturnUrls(): ?ReturnUrls
     {
         return $this->ReturnUrls;
     }
 
-    public function setReturnUrls(ReturnUrls $ReturnUrls): self
+    /**
+     * @param ReturnUrls|null $ReturnUrls
+     * @return $this
+     */
+    public function setReturnUrls(?ReturnUrls $ReturnUrls): self
     {
         $this->ReturnUrls = $ReturnUrls;
 
         return $this;
     }
 
+    /**
+     * @return Notification|null
+     */
     public function getNotification(): ?Notification
     {
         return $this->Notification;
     }
 
+    /**
+     * @param Notification|null $Notification
+     * @return $this
+     */
     public function setNotification(?Notification $Notification): self
     {
         $this->Notification = $Notification;
@@ -231,11 +308,18 @@ class PaypageInitialisation extends SaferPayMessage
         return $this;
     }
 
+    /**
+     * @return Styling|null
+     */
     public function getStyling(): ?Styling
     {
         return $this->Styling;
     }
 
+    /**
+     * @param Styling|null $Styling
+     * @return $this
+     */
     public function setStyling(?Styling $Styling): self
     {
         $this->Styling = $Styling;
@@ -243,11 +327,18 @@ class PaypageInitialisation extends SaferPayMessage
         return $this;
     }
 
+    /**
+     * @return BillingAddressForm|null
+     */
     public function getBillingAddressForm(): ?BillingAddressForm
     {
         return $this->BillingAddressForm;
     }
 
+    /**
+     * @param BillingAddressForm|null $BillingAddressForm
+     * @return $this
+     */
     public function setBillingAddressForm(?BillingAddressForm $BillingAddressForm): self
     {
         $this->BillingAddressForm = $BillingAddressForm;
@@ -255,11 +346,18 @@ class PaypageInitialisation extends SaferPayMessage
         return $this;
     }
 
+    /**
+     * @return DeliveryAddressForm|null
+     */
     public function getDeliveryAddressForm(): ?DeliveryAddressForm
     {
         return $this->DeliveryAddressForm;
     }
 
+    /**
+     * @param DeliveryAddressForm|null $DeliveryAddressForm
+     * @return $this
+     */
     public function setDeliveryAddressForm(?DeliveryAddressForm $DeliveryAddressForm): self
     {
         $this->DeliveryAddressForm = $DeliveryAddressForm;
@@ -267,11 +365,18 @@ class PaypageInitialisation extends SaferPayMessage
         return $this;
     }
 
+    /**
+     * @return CardForm|null
+     */
     public function getCardForm(): ?CardForm
     {
         return $this->CardForm;
     }
 
+    /**
+     * @param CardForm|null $CardForm
+     * @return $this
+     */
     public function setCardForm(?CardForm $CardForm): self
     {
         $this->CardForm = $CardForm;

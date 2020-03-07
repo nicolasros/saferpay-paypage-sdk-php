@@ -13,13 +13,13 @@ class Brand
 {
     /**
      * @Groups("RequestParams")
-     * @var string
+     * @var null|string
      */
     private $PaymentMethod;
 
     /**
      * @Groups("RequestParams")
-     * @var string
+     * @var null|string
      */
     private $Name;
 
@@ -33,10 +33,10 @@ class Brand
     }
 
     /**
-     * @param string $PaymentMethod
+     * @param null|string $PaymentMethod
      * @return Brand
      */
-    public function setPaymentMethod(string $PaymentMethod): self
+    public function setPaymentMethod(?string $PaymentMethod): self
     {
         $this->PaymentMethod = $PaymentMethod;
 
@@ -52,10 +52,10 @@ class Brand
     }
 
     /**
-     * @param string $Name
+     * @param null|string $Name
      * @return Brand
      */
-    public function setName(string $Name): self
+    public function setName(?string $Name): self
     {
         $this->Name = $Name;
 

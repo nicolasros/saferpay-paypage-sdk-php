@@ -12,37 +12,37 @@ class PaymentMeans
 {
     /**
      * @Groups("RequestParams")
-     * @var Brand
+     * @var null|Brand
      */
     private $Brand;
 
     /**
      * @Groups("RequestParams")
-     * @var string
+     * @var null|string
      */
     private $DisplayText;
 
     /**
      * @Groups("RequestParams")
-     * @var string
+     * @var null|string
      */
     private $Wallet;
 
     /**
      * @Groups("RequestParams")
-     * @var Card
+     * @var null|Card
      */
     private $Card;
 
     /**
      * @Groups("RequestParams")
-     * @var BankAccount
+     * @var null|BankAccount
      */
     private $BankAccount;
 
     /**
      * @Groups("RequestParams")
-     * @var Twint
+     * @var null|Twint
      */
     private $Twint;
     
@@ -74,10 +74,10 @@ class PaymentMeans
     }
 
     /**
-     * @param string $DisplayText
+     * @param null|string $DisplayText
      * @return PaymentMeans
      */
-    public function setDisplayText(string $DisplayText): self
+    public function setDisplayText(?string $DisplayText): self
     {
         $this->DisplayText = $DisplayText;
 
@@ -93,10 +93,10 @@ class PaymentMeans
     }
 
     /**
-     * @param string $Wallet
+     * @param null|string $Wallet
      * @return PaymentMeans
      */
-    public function setWallet(string $Wallet): self
+    public function setWallet(?string $Wallet): self
     {
         $this->Wallet = $Wallet;
 

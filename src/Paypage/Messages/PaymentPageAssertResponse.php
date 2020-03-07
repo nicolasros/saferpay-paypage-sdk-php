@@ -18,43 +18,43 @@ class PaymentPageAssertResponse
 {
     /**
      * @Groups("RequestParams")
-     * @var ResponseHeader
+     * @var null|ResponseHeader
      */
     private $ResponseHeader;
 
     /**
      * @Groups("RequestParams")
-     * @var Transaction
+     * @var null|Transaction
      */
     private $Transaction;
 
     /**
      * @Groups("RequestParams")
-     * @var PaymentMeans
+     * @var null|PaymentMeans
      */
     private $PaymentMeans;
 
     /**
      * @Groups("RequestParams")
-     * @var Payer
+     * @var null|Payer
      */
     private $Payer;
 
     /**
      * @Groups("RequestParams")
-     * @var RegistrationResult
+     * @var null|RegistrationResult
      */
     private $RegistrationResult;
 
     /**
      * @Groups("RequestParams")
-     * @var Liability
+     * @var null|Liability
      */
     private $Liability;
 
     /**
      * @Groups("RequestParams")
-     * @var Dcc
+     * @var null|Dcc
      */
     private $Dcc;
 

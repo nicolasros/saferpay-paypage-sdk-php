@@ -8,13 +8,13 @@ class Alias
 {
     /**
      * @Groups("RequestParams")
-     * @var string
+     * @var null|string
      */
     private $Id;
 
     /**
      * @Groups("RequestParams")
-     * @var int
+     * @var null|int
      */
     private $Lifetime;
 
@@ -27,10 +27,10 @@ class Alias
     }
 
     /**
-     * @param string $Id
+     * @param string|null $Id
      * @return Alias
      */
-    public function setId(string $Id): self
+    public function setId(?string $Id): self
     {
         $this->Id = $Id;
         
@@ -46,10 +46,10 @@ class Alias
     }
 
     /**
-     * @param int $Lifetime
+     * @param int|null $Lifetime
      * @return Alias
      */
-    public function setLifetime(int $Lifetime): self
+    public function setLifetime(?int $Lifetime): self
     {
         $this->Lifetime = $Lifetime;
 

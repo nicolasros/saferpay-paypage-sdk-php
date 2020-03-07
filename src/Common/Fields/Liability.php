@@ -12,35 +12,27 @@ class Liability
 {
     /**
      * @Groups("RequestParams")
-     * @var bool
+     * @var null|bool
      */
     private $LiabilityShift;
 
     /**
      * @Groups("RequestParams")
-     * @var string
+     * @var null|string
      */
     private $LiabilityEntity;
 
     /**
      * @Groups("RequestParams")
-     * @var ThreeDs
+     * @var null|ThreeDs
      */
     private $ThreeDs;
 
     /**
      * @Groups("RequestParams")
-     * @var FraudFree
+     * @var null|FraudFree
      */
     private $FraudFree;
-
-    /**
-     * @return int|null
-     */
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
 
     /**
      * @return bool|null
@@ -51,10 +43,10 @@ class Liability
     }
 
     /**
-     * @param bool $LiabilityShift
+     * @param null|bool $LiabilityShift
      * @return Liability
      */
-    public function setLiabilityShift(bool $LiabilityShift): self
+    public function setLiabilityShift(?bool $LiabilityShift): self
     {
         $this->LiabilityShift = $LiabilityShift;
 
@@ -70,10 +62,10 @@ class Liability
     }
 
     /**
-     * @param string $LiabilityEntity
+     * @param null|string $LiabilityEntity
      * @return Liability
      */
-    public function setLiabilityEntity(string $LiabilityEntity): self
+    public function setLiabilityEntity(?string $LiabilityEntity): self
     {
         $this->LiabilityEntity = $LiabilityEntity;
 

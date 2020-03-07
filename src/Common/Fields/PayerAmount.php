@@ -11,24 +11,15 @@ use Symfony\Component\Serializer\Annotation\Groups;
 class PayerAmount
 {
     /**
-     * @var string
+     * @var null|string
      */
     private $Value;
 
     /**
      * @Groups("RequestParams")
-     * @var string
+     * @var null|string
      */
     private $CurrencyCode;
-
-    /**
-     * @Groups("RequestParams")
-     * @return int|null
-     */
-    public function getId(): ?int
-    {
-        return $this->id;
-    }
 
     /**
      * @return string|null
@@ -39,10 +30,10 @@ class PayerAmount
     }
 
     /**
-     * @param string $Value
+     * @param null|string $Value
      * @return PayerAmount
      */
-    public function setValue(string $Value): self
+    public function setValue(?string $Value): self
     {
         $this->Value = $Value;
 
@@ -58,10 +49,10 @@ class PayerAmount
     }
 
     /**
-     * @param string $CurrencyCode
+     * @param null|string $CurrencyCode
      * @return PayerAmount
      */
-    public function setCurrencyCode(string $CurrencyCode): self
+    public function setCurrencyCode(?string $CurrencyCode): self
     {
         $this->CurrencyCode = $CurrencyCode;
 

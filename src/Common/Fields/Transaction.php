@@ -12,61 +12,61 @@ class Transaction
 {
     /**
      * @Groups("RequestParams")
-     * @var string
+     * @var null|string
      */
     private $Type;
 
     /**
      * @Groups("RequestParams")
-     * @var string
+     * @var null|string
      */
     private $Status;
 
     /**
      * @Groups("RequestParams")
-     * @var string
+     * @var null|string
      */
     private $Id;
 
     /**
      * @Groups("RequestParams")
-     * @var \DateTimeInterface
+     * @var null|string
      */
     private $Date;
 
     /**
      * @Groups("RequestParams")
-     * @var Amount
+     * @var null|Amount
      */
     private $Amount;
 
     /**
      * @Groups("RequestParams")
-     * @var string
+     * @var null|string
      */
     private $OrderId;
 
     /**
      * @Groups("RequestParams")
-     * @var string
+     * @var null|string
      */
     private $AcquirerName;
 
     /**
      * @Groups("RequestParams")
-     * @var string
+     * @var null|string
      */
     private $AcquirerReference;
 
     /**
      * @Groups("RequestParams")
-     * @var string
+     * @var null|string
      */
     private $SixTransactionReference;
 
     /**
      * @Groups("RequestParams")
-     * @var string
+     * @var null|string
      */
     private $ApprovalCode;
 
@@ -79,10 +79,10 @@ class Transaction
     }
 
     /**
-     * @param string $Type
+     * @param null|string $Type
      * @return Transaction
      */
-    public function setType(string $Type): self
+    public function setType(?string $Type): self
     {
         $this->Type = $Type;
 
@@ -98,10 +98,10 @@ class Transaction
     }
 
     /**
-     * @param string $Status
+     * @param null|string $Status
      * @return Transaction
      */
-    public function setStatus(string $Status): self
+    public function setStatus(?string $Status): self
     {
         $this->Status = $Status;
 
@@ -109,18 +109,18 @@ class Transaction
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public  function getId(): string
+    public  function getId(): ?string
     {
         return $this->Id;
     }
 
     /**
-     * @param string $Id
+     * @param null|string $Id
      * @return Transaction
      */
-    public function setId(string $Id): self
+    public function setId(?string $Id): self
     {
         $this->Id = $Id;
 
@@ -132,17 +132,16 @@ class Transaction
      */
     public function getDate(): ?\DateTimeInterface
     {
-        return $this->Date;
+        return \DateTime::createFromFormat("Y-m-d\TH:i:s.u+P", $this->Date);
     }
 
     /**
-     * @param string $Date
+     * @param null|string $Date
      * @return Transaction
      */
-    public function setDate(string $Date): self
+    public function setDate(?string $Date): self
     {
-        $DateDT = \DateTime::createFromFormat("Y-m-d\TH:i:s.u+P", $Date);
-        $this->Date = $DateDT;
+        $this->Date = $Date;
 
         return $this;
     }
@@ -175,10 +174,10 @@ class Transaction
     }
 
     /**
-     * @param string $OrderId
+     * @param null|string $OrderId
      * @return Transaction
      */
-    public function setOrderId(string $OrderId): self
+    public function setOrderId(?string $OrderId): self
     {
         $this->OrderId = $OrderId;
 
@@ -194,10 +193,10 @@ class Transaction
     }
 
     /**
-     * @param string $AcquirerName
+     * @param null|string $AcquirerName
      * @return Transaction
      */
-    public function setAcquirerName(string $AcquirerName): self
+    public function setAcquirerName(?string $AcquirerName): self
     {
         $this->AcquirerName = $AcquirerName;
 
@@ -213,10 +212,10 @@ class Transaction
     }
 
     /**
-     * @param string $AcquirerReference
+     * @param null|string $AcquirerReference
      * @return Transaction
      */
-    public function setAcquirerReference(string $AcquirerReference): self
+    public function setAcquirerReference(?string $AcquirerReference): self
     {
         $this->AcquirerReference = $AcquirerReference;
 
@@ -232,10 +231,10 @@ class Transaction
     }
 
     /**
-     * @param string $SixTransactionReference
+     * @param null|string $SixTransactionReference
      * @return Transaction
      */
-    public function setSixTransactionReference(string $SixTransactionReference): self
+    public function setSixTransactionReference(?string $SixTransactionReference): self
     {
         $this->SixTransactionReference = $SixTransactionReference;
 
@@ -251,10 +250,10 @@ class Transaction
     }
 
     /**
-     * @param string $ApprovalCode
+     * @param null|string $ApprovalCode
      * @return Transaction
      */
-    public function setApprovalCode(string $ApprovalCode): self
+    public function setApprovalCode(?string $ApprovalCode): self
     {
         $this->ApprovalCode = $ApprovalCode;
 

@@ -10,55 +10,80 @@ namespace Worldline\Saferpay\Common\Fields;
 
 use Symfony\Component\Serializer\Annotation\Groups;
 
+/**
+ * Class ReturnUrls
+ * @package Worldline\Saferpay\Common\Fields
+ */
 class ReturnUrls
 {
     /**
      * @Groups("RequestParams")
-     * @var string
+     * @var null|string
      */
     private $Success;
 
     /**
      * @Groups("RequestParams")
-     * @var string
+     * @var null|string
      */
     private $Fail;
 
     /**
      * @Groups("RequestParams")
-     * @var string
+     * @var null|string
      */
     private $Abort;
 
+    /**
+     * @return string|null
+     */
     public function getSuccess(): ?string
     {
         return $this->Success;
     }
 
-    public function setSuccess(string $Success): self
+    /**
+     * @param string|null $Success
+     * @return $this
+     */
+    public function setSuccess(?string $Success): self
     {
         $this->Success = $Success;
 
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getFail(): ?string
     {
         return $this->Fail;
     }
 
-    public function setFail(string $Fail): self
+    /**
+     * @param string|null $Fail
+     * @return $this
+     */
+    public function setFail(?string $Fail): self
     {
         $this->Fail = $Fail;
 
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getAbort(): ?string
     {
         return $this->Abort;
     }
 
+    /**
+     * @param string|null $Abort
+     * @return $this
+     */
     public function setAbort(?string $Abort): self
     {
         $this->Abort = $Abort;

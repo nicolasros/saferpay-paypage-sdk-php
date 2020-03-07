@@ -12,7 +12,7 @@ class Dcc
 {
     /**
      * @Groups("RequestParams")
-     * @var PayerAmount
+     * @var null|PayerAmount
      */
     private $PayerAmount;
 

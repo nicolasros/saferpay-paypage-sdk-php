@@ -11,27 +11,27 @@ use Symfony\Component\Serializer\Annotation\Groups;
 class BankAccount
 {
     /**
-     * @var string
+     * @var null|string
      */
     private $IBAN;
 
     /**
-     * @var string
+     * @var null|string
      */
     private $HolderName;
 
     /**
-     * @var string
+     * @var null|string
      */
     private $BIC;
 
     /**
-     * @var string
+     * @var null|string
      */
     private $BankName;
 
     /**
-     * @var string
+     * @var null|string
      */
     private $CountryCode;
 
@@ -45,10 +45,10 @@ class BankAccount
     }
 
     /**
-     * @param string $IBAN
+     * @param null|string $IBAN
      * @return BankAccount
      */
-    public function setIBAN(string $IBAN): self
+    public function setIBAN(?string $IBAN): self
     {
         $this->IBAN = $IBAN;
 
@@ -64,10 +64,10 @@ class BankAccount
     }
 
     /**
-     * @param string $HolderName
+     * @param null|string $HolderName
      * @return BankAccount
      */
-    public function setHolderName(string $HolderName): self
+    public function setHolderName(?string $HolderName): self
     {
         $this->HolderName = $HolderName;
 
@@ -83,10 +83,10 @@ class BankAccount
     }
 
     /**
-     * @param string $BIC
+     * @param null|string $BIC
      * @return BankAccount
      */
-    public function setBIC(string $BIC): self
+    public function setBIC(?string $BIC): self
     {
         $this->BIC = $BIC;
 
@@ -102,10 +102,10 @@ class BankAccount
     }
 
     /**
-     * @param string $BankName
+     * @param null|string $BankName
      * @return BankAccount
      */
-    public function setBankName(string $BankName): self
+    public function setBankName(?string $BankName): self
     {
         $this->BankName = $BankName;
 
@@ -121,10 +121,10 @@ class BankAccount
     }
 
     /**
-     * @param string $CountryCode
+     * @param null|string $CountryCode
      * @return BankAccount
      */
-    public function setCountryCode(string $CountryCode): self
+    public function setCountryCode(?string $CountryCode): self
     {
         $this->CountryCode = $CountryCode;
 

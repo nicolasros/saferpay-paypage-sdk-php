@@ -32,10 +32,10 @@ class DirectDebit
     }
 
     /**
-     * @param string $MadateId
+     * @param null|string $MadateId
      * @return DirectDebit
      */
-    public function setMadateId(string $MadateId): self
+    public function setMadateId(?string $MadateId): self
     {
         $this->MadateId = $MadateId;
 
@@ -51,10 +51,10 @@ class DirectDebit
     }
 
     /**
-     * @param string $CreditorId
+     * @param null|string $CreditorId
      * @return DirectDebit
      */
-    public function setCreditorId(string $CreditorId): self
+    public function setCreditorId(?string $CreditorId): self
     {
         $this->CreditorId = $CreditorId;
 

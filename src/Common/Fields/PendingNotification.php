@@ -12,13 +12,13 @@ class PendingNotification
 {
     /**
      * @Groups("RequestParams")
-     * @var string
+     * @var null|string
      */
     private $MerchantEmail;
 
     /**
      * @Groups("RequestParams")
-     * @var string
+     * @var null|string
      */
     private $NotifyUrl;
 
@@ -31,10 +31,10 @@ class PendingNotification
     }
 
     /**
-     * @param string $MerchantEmail
+     * @param null|string $MerchantEmail
      * @return PendingNotification
      */
-    public function setMerchantEmail(string $MerchantEmail): self
+    public function setMerchantEmail(?string $MerchantEmail): self
     {
         $this->MerchantEmail = $MerchantEmail;
 
@@ -50,10 +50,10 @@ class PendingNotification
     }
 
     /**
-     * @param string $NotifyUrl
+     * @param null|string $NotifyUrl
      * @return PendingNotification
      */
-    public function setNotifyUrl(string $NotifyUrl): self
+    public function setNotifyUrl(?string $NotifyUrl): self
     {
         $this->NotifyUrl = $NotifyUrl;
 

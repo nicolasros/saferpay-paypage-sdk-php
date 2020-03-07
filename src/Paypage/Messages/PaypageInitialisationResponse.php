@@ -4,98 +4,136 @@ namespace Worldline\Saferpay\Paypage\Messages;
 
 use Worldline\Saferpay\Common\Fields\ResponseHeader;
 
+/**
+ * Class PaypageInitialisationResponse
+ * @package Worldline\Saferpay\Paypage\Messages
+ */
 class PaypageInitialisationResponse
 {
     /**
      * @Groups("RequestParams")
-     * @var ResponseHeader
+     * @var null|ResponseHeader
      */
     private $ResponseHeader;
 
     /**
      * @Groups("RequestParams")
-     * @var string
+     * @var null|string
      */
     private $Token;
 
     /**
      * @Groups("RequestParams")
-     * @var \DateTimeInterface
+     * @var null|string
      */
     private $Expiration;
 
     /**
      * @Groups("RequestParams")
-     * @var string
+     * @var null|string
      */
     private $RedirectUrl;
 
     /**
      * @Groups("RequestParams")
-     * @var string
+     * @var null|string
      */
     private $Error;
 
     /**
      * @Groups("RequestParams")
-     * @var integer
+     * @var null|integer
      */
     private $StatusCode;
 
+    /**
+     * @return ResponseHeader|null
+     */
     public function getResponseHeader(): ?ResponseHeader
     {
         return $this->ResponseHeader;
     }
 
-    public function setResponseHeader(ResponseHeader $ResponseHeader): self
+    /**
+     * @param ResponseHeader|null $ResponseHeader
+     * @return $this
+     */
+    public function setResponseHeader(?ResponseHeader $ResponseHeader): self
     {
         $this->ResponseHeader = $ResponseHeader;
 
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getToken(): ?string
     {
         return $this->Token;
     }
 
-    public function setToken(string $Token): self
+    /**
+     * @param string|null $Token
+     * @return $this
+     */
+    public function setToken(?string $Token): self
     {
         $this->Token = $Token;
 
         return $this;
     }
 
-    public function getExpiration(): ?\DateTimeInterface
+    /**
+     * @return string|null
+     */
+    public function getExpiration(): ?string
     {
-        return $this->Expiration;
+        return \DateTime::createFromFormat("Y-m-d\TH:i:s.u+P", $this->Expiration);
     }
 
-    public function setExpiration(string $Expiration): self
+    /**
+     * @param string|null $Expiration
+     * @return $this
+     */
+    public function setExpiration(?string $Expiration): self
     {
-        $expirationDT = \DateTime::createFromFormat("Y-m-d\TH:i:s.u+P", $Expiration);
-        $this->Expiration = $expirationDT;
+        $this->Expiration = $Expiration;
 
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getRedirectUrl(): ?string
     {
         return $this->RedirectUrl;
     }
 
-    public function setRedirectUrl(string $RedirectUrl): self
+    /**
+     * @param string|null $RedirectUrl
+     * @return $this
+     */
+    public function setRedirectUrl(?string $RedirectUrl): self
     {
         $this->RedirectUrl = $RedirectUrl;
 
         return $this;
     }
 
+    /**
+     * @return string|null
+     */
     public function getError(): ?string
     {
         return $this->Error;
     }
 
+    /**
+     * @param string|null $Error
+     * @return $this
+     */
     public function setError(?string $Error): self
     {
         $this->Error = $Error;
@@ -103,12 +141,19 @@ class PaypageInitialisationResponse
         return $this;
     }
 
+    /**
+     * @return int|null
+     */
     public function getStatusCode(): ?int
     {
         return $this->StatusCode;
     }
 
-    public function setStatusCode(int $StatusCode): self
+    /**
+     * @param int|null $StatusCode
+     * @return $this
+     */
+    public function setStatusCode(?int $StatusCode): self
     {
         $this->StatusCode = $StatusCode;
 
