@@ -60,18 +60,18 @@ class ErrorMessage
     private $error;
 
     /**
-     * @return RequestHeader|null
+     * @return ResponseHeader|null
      */
-    public function getResponseHeader(): ?RequestHeader
+    public function getResponseHeader(): ?ResponseHeader
     {
         return $this->ResponseHeader;
     }
 
     /**
-     * @param RequestHeader|null $ResponseHeader
+     * @param ResponseHeader|null $ResponseHeader
      * @return ErrorMessage
      */
-    public function setResponseHeader(?RequestHeader $ResponseHeader): self
+    public function setResponseHeader(?ResponseHeader $ResponseHeader): self
     {
         $this->ResponseHeader = $ResponseHeader;
 

@@ -9,14 +9,23 @@ class SaferpayEnvironment
         "TEST" => "https://test.saferpay.com/",
         "PROD" => "https://www.saferpay.com/",
     ];
+
+
+    /**
+     * @varstring
+     */
     protected $environment;
 
     /**
      * SaferpayEnvironment constructor.
-     * @param $environment
+     * @param string $environment
+     * @throws \Exception
      */
-    public function __construct($environment)
+    public function __construct($environment = null)
     {
+        if ($environment == null) {
+            $environment = $_SERVER['ENVIRONMENT'];
+        }
         if (key_exists(strtoupper($environment), $this->possibleEnvironments)) {
             $this->environment = $this->possibleEnvironments[$environment];
         } else {

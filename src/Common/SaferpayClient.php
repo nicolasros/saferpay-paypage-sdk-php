@@ -65,8 +65,20 @@ class SaferpayClient
      * @param $apiUser
      * @param $apiPassword
      */
-    public function __construct(SaferpayEnvironment $environment, string $customerId, string $terminalId, string $apiUser, string $apiPassword)
+    public function __construct(SaferpayEnvironment $environment, string $customerId = null, string $terminalId = null, string $apiUser = null, string $apiPassword = null)
     {
+        if ($customerId == null) {
+            $customerId = $_SERVER['CUSTOMER_ID'];
+        }
+        if ($terminalId == null) {
+            $terminalId = $_SERVER['TERMINAL'];
+        }
+        if ($apiUser == null) {
+            $apiUser = $_SERVER['USERNAME'];
+        }
+        if ($apiPassword == null) {
+            $apiPassword = $_SERVER['PASSWORD'];
+        }
         $this->environment = $environment;
         $this->customerId = $customerId;
         $this->terminalId = $terminalId;
@@ -116,7 +128,7 @@ class SaferpayClient
         //$json = $this->serializer->serialize($request, 'json', ['groups' => 'RequestParams']);
         $url = $this->environment->getEnvironment() . $request->getServiceUrl();
         $response = $this->do_curl($this->apiUser, $this->apiPassword, $url, $json, $className);
-        
+
         return $response;
     }
 

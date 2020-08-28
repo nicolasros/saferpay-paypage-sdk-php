@@ -27,7 +27,8 @@
     "doctrine/annotations": "@stable",
     "doctrine/cache": "@stable",
     "symfony/property-info": "@stable",
-    "ext-curl": "*"
+    "ext-curl": "*",
+    "ext-json": "*"
   },
   "require-dev": {
     "phpunit/phpunit": "@stable"
