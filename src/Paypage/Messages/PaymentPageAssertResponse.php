@@ -59,6 +59,16 @@ class PaymentPageAssertResponse
     private $Dcc;
 
     /**
+     * @var integer|null
+     */
+    private $StatusCode;
+
+    /**
+     * @var string|null
+     */
+    private $Error;
+
+    /**
      * @return ResponseHeader|null
      */
     public function getResponseHeader(): ?ResponseHeader
@@ -190,4 +200,41 @@ class PaymentPageAssertResponse
 
         return $this;
     }
+
+    /**
+     * @return int|null
+     */
+    public function getStatusCode(): ?int
+    {
+        return $this->StatusCode;
+    }
+
+    /**
+     * @param int|null $StatusCode
+     * @return PaymentPageAssertResponse
+     */
+    public function setStatusCode(?int $StatusCode): PaymentPageAssertResponse
+    {
+        $this->StatusCode = $StatusCode;
+        return $this;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getError(): ?string
+    {
+        return $this->Error;
+    }
+
+    /**
+     * @param string|null $Error
+     * @return PaymentPageAssertResponse
+     */
+    public function setError(?string $Error): PaymentPageAssertResponse
+    {
+        $this->Error = $Error;
+        return $this;
+    }
+
 }
