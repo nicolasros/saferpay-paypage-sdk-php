@@ -3,12 +3,14 @@
 namespace Worldline\Saferpay\Paypage\Messages;
 
 use Symfony\Component\Serializer\Annotation\Groups;
+use Worldline\Saferpay\Common\Fields\Authentication;
 use Worldline\Saferpay\Common\Fields\BillingAddressForm;
 use Worldline\Saferpay\Common\Fields\CardForm;
 use Worldline\Saferpay\Common\Fields\DeliveryAddressForm;
 use Worldline\Saferpay\Common\Fields\Notification;
 use Worldline\Saferpay\Common\Fields\Payer;
 use Worldline\Saferpay\Common\Fields\Payment;
+use Worldline\Saferpay\Common\Fields\PaymentMethodsOptions;
 use Worldline\Saferpay\Common\Fields\RegisterAlias;
 use Worldline\Saferpay\Common\Fields\RequestHeader;
 use Worldline\Saferpay\Common\Fields\ReturnUrls;
@@ -55,6 +57,16 @@ class PaypageInitialisation extends SaferPayMessage
      * @var null|array
      */
     private $PaymentMethods;
+
+    /**
+     * @var PaymentMethodsOptions|null
+     */
+    private $PaymentMethodOptions;
+
+    /**
+     * @var Authentication|null
+     */
+    private $Authentication;
 
     /**
      * @Groups("RequestParams")
@@ -210,6 +222,42 @@ class PaypageInitialisation extends SaferPayMessage
     {
         $this->PaymentMethods = $PaymentMethods;
 
+        return $this;
+    }
+
+    /**
+     * @return PaymentMethodsOptions|null
+     */
+    public function getPaymentMethodOptions(): ?PaymentMethodsOptions
+    {
+        return $this->PaymentMethodOptions;
+    }
+
+    /**
+     * @param PaymentMethodsOptions|null $PaymentMethodOptions
+     * @return PaypageInitialisation
+     */
+    public function setPaymentMethodOptions(?PaymentMethodsOptions $PaymentMethodOptions): self
+    {
+        $this->PaymentMethodOptions = $PaymentMethodOptions;
+        return $this;
+    }
+
+    /**
+     * @return Authentication|null
+     */
+    public function getAuthentication(): ?Authentication
+    {
+        return $this->Authentication;
+    }
+
+    /**
+     * @param Authentication|null $Authentication
+     * @return PaypageInitialisation
+     */
+    public function setAuthentication(?Authentication $Authentication): self
+    {
+        $this->Authentication = $Authentication;
         return $this;
     }
 
