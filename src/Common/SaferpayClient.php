@@ -151,7 +151,6 @@ class SaferpayClient
             $resp = json_decode(curl_multi_getcontent($curl), true);
             $resp['StatusCode'] = $status;
             $resp['error'] = curl_errno($curl);
-            var_dump($resp);
             $resp = json_encode($resp);
             //$obj = $resp;
             $obj = $this->serializer->deserialize($resp, ErrorMessage::class, 'json');
