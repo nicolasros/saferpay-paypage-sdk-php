@@ -14,7 +14,7 @@ class Notification
      * @Groups("RequestParams")
      * @var null|string
      */
-    private $MerchantEmail;
+    private $MerchantEmails;
 
     /**
      * @Groups("RequestParams")
@@ -31,18 +31,18 @@ class Notification
     /**
      * @return string|null
      */
-    public function getMerchantEmail(): ?string
+    public function getMerchantEmails(): ?string
     {
-        return $this->MerchantEmail;
+        return $this->MerchantEmails;
     }
 
     /**
-     * @param string|null $MerchantEmail
+     * @param string|null $MerchantEmails
      * @return $this
      */
-    public function setMerchantEmail(?string $MerchantEmail): self
+    public function setMerchantEmails(?string $MerchantEmails): self
     {
-        $this->MerchantEmail = $MerchantEmail;
+        $this->MerchantEmails = $MerchantEmails;
 
         return $this;
     }
