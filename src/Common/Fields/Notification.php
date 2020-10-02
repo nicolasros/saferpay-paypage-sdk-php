@@ -12,7 +12,7 @@ class Notification
 {
     /**
      * @Groups("RequestParams")
-     * @var null|string
+     * @var null|array
      */
     private $MerchantEmails;
 
@@ -29,18 +29,18 @@ class Notification
     private $NotifyUrl;
 
     /**
-     * @return string|null
+     * @return array|null
      */
-    public function getMerchantEmails(): ?string
+    public function getMerchantEmails(): ?array
     {
         return $this->MerchantEmails;
     }
 
     /**
-     * @param string|null $MerchantEmails
+     * @param array|null $MerchantEmails
      * @return $this
      */
-    public function setMerchantEmails(?string $MerchantEmails): self
+    public function setMerchantEmails(?array $MerchantEmails): self
     {
         $this->MerchantEmails = $MerchantEmails;
 
