@@ -4,6 +4,10 @@ namespace Worldline\Saferpay\Common\Fields;
 
 use Symfony\Component\Serializer\Annotation\Groups;
 
+/**
+ * Class Alias
+ * @package Worldline\Saferpay\Common\Fields
+ */
 class Alias
 {
     /**
@@ -17,6 +21,12 @@ class Alias
      * @var null|int
      */
     private $Lifetime;
+
+    /**
+     * @Groups("RequestParams")
+     * @var string|null
+     */
+    private $VerificationCode;
 
     /**
      * @return string|null
@@ -55,4 +65,23 @@ class Alias
 
         return $this;
     }
+
+    /**
+     * @return string|null
+     */
+    public function getVerificationCode(): ?string
+    {
+        return $this->VerificationCode;
+    }
+
+    /**
+     * @param string|null $VerificationCode
+     * @return Alias
+     */
+    public function setVerificationCode(?string $VerificationCode): Alias
+    {
+        $this->VerificationCode = $VerificationCode;
+        return $this;
+    }
+
 }

@@ -13,6 +13,7 @@ class Styling
     /**
      * @Groups("RequestParams")
      * @var null|string
+     * Depricated!
      */
     private $CssUrl;
 

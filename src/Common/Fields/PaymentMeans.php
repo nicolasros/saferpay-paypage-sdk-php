@@ -45,6 +45,15 @@ class PaymentMeans
      * @var null|Twint
      */
     private $Twint;
+
+    /**
+     * @var Alias|null
+     */
+    private $Alias;
+    /**
+     * @var SaferpayFields|null
+     */
+    private $SaferpayFields;
     
     /**
      * @return Brand|null
@@ -159,4 +168,42 @@ class PaymentMeans
 
         return $this;
     }
+
+    /**
+     * @return Alias|null
+     */
+    public function getAlias(): ?Alias
+    {
+        return $this->Alias;
+    }
+
+    /**
+     * @param Alias|null $Alias
+     * @return PaymentMeans
+     */
+    public function setAlias(?Alias $Alias): PaymentMeans
+    {
+        $this->Alias = $Alias;
+        return $this;
+    }
+
+    /**
+     * @return SaferpayFields|null
+     */
+    public function getSaferpayFields(): ?SaferpayFields
+    {
+        return $this->SaferpayFields;
+    }
+
+    /**
+     * @param SaferpayFields|null $SaferpayFields
+     * @return PaymentMeans
+     */
+    public function setSaferpayFields(?SaferpayFields $SaferpayFields): PaymentMeans
+    {
+        $this->SaferpayFields = $SaferpayFields;
+        return $this;
+    }
+
+
 }

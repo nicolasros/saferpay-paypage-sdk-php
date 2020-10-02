@@ -15,6 +15,10 @@ class CardForm
      * @var null|string
      */
     private $HolderName;
+    /**
+     * @var string|null
+     */
+    private $VerificationCode;
 
     /**
      * @return string|null
@@ -34,4 +38,23 @@ class CardForm
 
         return $this;
     }
+
+    /**
+     * @return string|null
+     */
+    public function getVerificationCode(): ?string
+    {
+        return $this->VerificationCode;
+    }
+
+    /**
+     * @param string|null $VerificationCode
+     * @return CardForm
+     */
+    public function setVerificationCode(?string $VerificationCode): CardForm
+    {
+        $this->VerificationCode = $VerificationCode;
+        return $this;
+    }
+
 }

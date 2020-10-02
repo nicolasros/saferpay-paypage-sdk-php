@@ -35,6 +35,12 @@ class Payer
     private $BillingAddress;
 
     /**
+     * @Groups("RequestParams")
+     * @var string|null
+     */
+    private $Id;
+
+    /**
      * @return string|null
      */
     public function getIpAddress(): ?string
@@ -109,4 +115,23 @@ class Payer
 
         return $this;
     }
+
+    /**
+     * @return string|null
+     */
+    public function getId(): ?string
+    {
+        return $this->Id;
+    }
+
+    /**
+     * @param string|null $Id
+     * @return Payer
+     */
+    public function setId(?string $Id): Payer
+    {
+        $this->Id = $Id;
+        return $this;
+    }
+
 }
