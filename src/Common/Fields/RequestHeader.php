@@ -41,6 +41,16 @@ class RequestHeader
     private $ClientInfo;
 
     /**
+     * RequestHeader constructor.
+     */
+    public function __construct()
+    {
+        $microtime = explode(' ', microtime());
+        $microtime[0] = $microtime[0] * 1000000;
+        $this->setRequestId($microtime[1].$microtime[0]);
+    }
+
+    /**
      * @return string|null
      */
     public function getSpecVersion(): ?string
