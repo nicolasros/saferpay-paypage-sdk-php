@@ -15,13 +15,19 @@ use Worldline\Saferpay\Common\Fields\ReturnUrls;
 use Worldline\Saferpay\Common\Fields\RiskFactors;
 use Worldline\Saferpay\Common\Fields\Styling;
 use Worldline\Saferpay\Common\Fields\Wallet;
+use Worldline\Saferpay\Common\Messages\SaferPayMessage;
 
 /**
  * Class TransactionInitialize
  * @package Worldline\Saferpay\Transaction\Messages
  */
-class TransactionInitialize
+class TransactionInitialize extends SaferPayMessage
 {
+    /**
+     * @var string
+     */
+    private $serviceUrl = "api/Payment/v1/Transaction/Initialize";
+
     /**
      * @var RequestHeader|null
      */
@@ -78,6 +84,14 @@ class TransactionInitialize
      * @var CardForm|null
      */
     private $CardForm;
+
+    /**
+     * @return string|null
+     */
+    public function getServiceUrl(): ?string
+    {
+        return $this->serviceUrl;
+    }
 
     /**
      * @return RequestHeader|null

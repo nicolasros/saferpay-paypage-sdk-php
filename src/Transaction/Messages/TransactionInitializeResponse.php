@@ -32,7 +32,7 @@ class TransactionInitializeResponse
     /**
      * @var bool|null
      */
-    private $RedirectionRequired;
+    private $RedirectRequired;
     /**
      * @var Redirect|null
      */
@@ -113,18 +113,18 @@ class TransactionInitializeResponse
     /**
      * @return bool|null
      */
-    public function getRedirectionRequired(): ?bool
+    public function getRedirectRequired(): ?bool
     {
-        return $this->RedirectionRequired;
+        return $this->RedirectRequired;
     }
 
     /**
-     * @param bool|null $RedirectionRequired
+     * @param bool|null $RedirectRequired
      * @return TransactionInitializeResponse
      */
-    public function setRedirectionRequired(?bool $RedirectionRequired): TransactionInitializeResponse
+    public function setRedirectRequired(?bool $RedirectRequired): TransactionInitializeResponse
     {
-        $this->RedirectionRequired = $RedirectionRequired;
+        $this->RedirectRequired = $RedirectRequired;
         return $this;
     }
 
