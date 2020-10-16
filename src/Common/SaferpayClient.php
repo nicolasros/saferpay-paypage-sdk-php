@@ -120,10 +120,12 @@ class SaferpayClient
     public function send(SaferPayMessage &$request)
     {
         $className = get_class($request)."Response";
-        if ($className == "Worldline\Saferpay\Paypage\Messages\PaypageInitialisationResponse") {
+        if ($className == "Worldline\Saferpay\Paypage\Messages\PaypageInitialisationResponse" AND $request->getTerminalId() == null) {
             $request->setTerminalId($this->terminalId);
         }
-        $request->getRequestHeader()->setCustomerId($this->customerId);
+        if ($request->getRequestHeader()->getCustomerId() == null) {
+            $request->getRequestHeader()->setCustomerId($this->customerId);
+        }
         $json = $this->serializer->serialize($request, 'json', ['groups' => 'RequestParams','ignored_attributes' => ['serviceUrl'], 'skip_null_values' => true]);
         //$json = $this->serializer->serialize($request, 'json', ['groups' => 'RequestParams']);
         $url = $this->environment->getEnvironment() . $request->getServiceUrl();
