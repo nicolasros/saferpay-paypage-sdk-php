@@ -24,7 +24,7 @@ class SaferpayEnvironment
     public function __construct($environment = null)
     {
         if ($environment == null) {
-            $environment = $_SERVER['ENVIRONMENT'];
+            $environment = $_SERVER['SAFERPAY_ENVIRONMENT'];
         }
         if (key_exists(strtoupper($environment), $this->possibleEnvironments)) {
             $this->environment = $this->possibleEnvironments[$environment];

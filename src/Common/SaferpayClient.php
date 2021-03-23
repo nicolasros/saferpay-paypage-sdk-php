@@ -68,16 +68,16 @@ class SaferpayClient
     public function __construct(SaferpayEnvironment $environment, string $customerId = null, string $terminalId = null, string $apiUser = null, string $apiPassword = null)
     {
         if ($customerId == null) {
-            $customerId = $_SERVER['CUSTOMER_ID'];
+            $customerId = $_SERVER['SAFERPAY_CUSTOMER_ID'];
         }
         if ($terminalId == null) {
-            $terminalId = $_SERVER['TERMINAL'];
+            $terminalId = $_SERVER['SAFERPAY_TERMINAL'];
         }
         if ($apiUser == null) {
-            $apiUser = $_SERVER['USERNAME'];
+            $apiUser = $_SERVER['SAFERPAY_USERNAME'];
         }
         if ($apiPassword == null) {
-            $apiPassword = $_SERVER['PASSWORD'];
+            $apiPassword = $_SERVER['SAFERPAY_PASSWORD'];
         }
         $this->environment = $environment;
         $this->customerId = $customerId;
